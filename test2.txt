@@ -1,0 +1,4 @@
+Roses are red (1)
+Violets are blue (2)
+Global Scope Bad Aligned (3)
+On line 42 (4)
