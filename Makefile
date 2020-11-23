@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 13:58:28 by abeznik       #+#    #+#                  #
-#    Updated: 2020/11/21 10:04:27 by abeznik       ########   odam.nl          #
+#    Updated: 2020/11/22 15:10:35 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MAIN	=	$(MAINS:.c=.o)
 
 CC		=	gcc
 RM		=	rm -f
-CFLAGS	=	-I. -Werror -Wextra -Wall -D BUFFER_SIZE=32
+CFLAGS	=	-I. -Werror -Wextra -Wall -D BUFFER_SIZE=9999
 
 NAME	=	get_next_line.a
 
@@ -54,6 +54,7 @@ gnl:		get_next_line.o main.o get_next_line_utils.o
 	@echo "[INFO] Executable [$(NAME)] created!"
 
 del:		mclean oclean fclean
+	@echo "[INFO] .out removed!"
 
 re:			fclean all
 

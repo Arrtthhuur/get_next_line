@@ -6,15 +6,14 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 09:47:53 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/21 10:17:07 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/22 09:25:31 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <string.h>
 #include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void		*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int	i;
 

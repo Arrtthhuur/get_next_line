@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 11:16:37 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/21 10:24:07 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/21 12:28:44 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int			main(void)
 	int		fd;
 	int		line_nb;
 
-	fd = open("test4.txt", O_RDONLY);
+	fd = open("test2.txt", O_RDONLY);
 	line_nb = 1;
 	while (get_next_line(fd, &line) == 1)
 	{
