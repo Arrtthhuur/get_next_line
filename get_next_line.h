@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/17 14:06:03 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/11/21 10:16:51 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/11/22 09:23:01 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 int			get_next_line(int fd, char **line);
 
 char		*ft_strdup(const char *s1);
-
-char		*ft_strchr(const char *s, int c);
 
 char		*ft_strjoin(char const *s1, char const *s2);
 
