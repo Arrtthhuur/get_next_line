@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 11:16:37 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/04 16:43:18 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/05 11:35:30 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int			main(void)
 	printf("\033[1;31m");
 	printf("\nRead whole file!\n");
 	printf("\033[0m");
+	while (1)
+	{;}
+	
 	return (0);
 }

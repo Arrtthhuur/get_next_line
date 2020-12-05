@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 09:47:53 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/04 11:04:31 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/05 12:46:10 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *s1)
 {
 	int		i;
 	int		size;
@@ -66,8 +66,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		res[i] = s1[i];
 		i++;
 	}
-	// free(s1);
-	s1 = NULL;
 	while (s2[j] != '\0')
 	{
 		res[i] = s2[j];

@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/03 20:37:28 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/04 17:21:37 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/05 12:39:47 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ static void		ft_strdel(char **as)
 {
 	if (as)
 	{
+		printf("Str to be freed:\n[%s]\n", *as);
 		free(*as);
 		*as = NULL;
+		printf("Str after free:\n[%s]\n", *as);
 	}
 	return ;
 }

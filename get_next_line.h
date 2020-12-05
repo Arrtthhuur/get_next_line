@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/17 14:06:03 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/03 20:44:00 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/05 12:45:18 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 # include <stddef.h>
 
-int			get_next_line(int fd, char **line);
+int					get_next_line(int fd, char **line);
 
-char		*ft_strdup(const char *s1);
+char				*ft_strdup(char *s1);
 
-char		*ft_strjoin(char *s1, char *s2);
+char				*ft_strjoin(char *s1, char *s2);
 
-char		*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
 
-size_t		ft_strlen(const char *s);
+size_t				ft_strlen(const char *s);
 
-void		*ft_memmove(void *dst, const void *src, size_t len);
+void				*ft_memmove(void *dst, const void *src, size_t len);
 
 #endif

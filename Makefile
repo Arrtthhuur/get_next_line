@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 13:58:28 by abeznik       #+#    #+#                  #
-#    Updated: 2020/12/04 11:19:47 by abeznik       ########   odam.nl          #
+#    Updated: 2020/12/05 13:09:27 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ SRCS	=	get_next_line.c $\
 			get_next_line_utils.c $\
 			gnl.c $\
 			gnl_test.c $\
-			gnl_two.c
+			gnl_two.c $\
+			get_nl.c $\
 
 MAINS	=	main.c $\
 			main_test.c
@@ -25,7 +26,7 @@ MAIN	=	$(MAINS:.c=.o)
 
 CC		=	gcc
 RM		=	rm -f
-CFLAGS	=	-D BUFFER_SIZE=5
+CFLAGS	=	-D BUFFER_SIZE=9999
 
 NAME	=	get_next_line.a
 
@@ -54,8 +55,11 @@ test:		gnl.o main.o get_next_line_utils.o
 test2:		gnl_test.o main.o get_next_line_utils.o
 	$(CC) -o gnl_test gnl_test.o main.o get_next_line_utils.o
 
-two:		gnl_two.o main.o get_next_line_utils.o
-	$(CC) -o two gnl_two.o main.o get_next_line_utils.o
+com:		gnl_two.o main.o get_next_line_utils.o
+	$(CC) -o com gnl_two.o main.o get_next_line_utils.o
+
+get_nl:		get_nl.o main.o get_next_line_utils.o
+	$(CC) -o get_nl get_nl.o main.o get_next_line_utils.o
 
 gnl:		get_next_line.o main.o get_next_line_utils.o
 	$(CC) -o gnl get_next_line.o main.o get_next_line_utils.o
