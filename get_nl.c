@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/05 11:46:41 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/06 11:49:29 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/06 11:56:20 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+
+//gcc -Wall -Werror -Wextra -fsanitize=address -g -D BUFFER_SIZE=50 main.c get_nl.c get_next_line_utils.c
 
 static void			ft_strdel(char **as)
 {
@@ -91,12 +93,9 @@ int					get_next_line(int fd, char **line)
 		buffer[nbytes] = '\0';
 		if (save[fd] == NULL)
 			save[fd] = ft_strdup(buffer);
-		else
-		{
-			tmp = ft_strjoin(save[fd], buffer);
-			free(save[fd]);
-			save[fd] = tmp;
-		}
+		tmp = ft_strjoin(save[fd], buffer);
+		free(save[fd]);
+		save[fd] = tmp;
 		if (ft_strchr(save[fd], '\n'))
 			break ;
 	}
