@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/20 17:29:36 by abeznik       #+#    #+#                  #
-#    Updated: 2020/11/20 17:30:01 by abeznik       ########   odam.nl          #
+#    Updated: 2020/12/06 11:42:50 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,3 +15,40 @@ bbbbbbbbbb
 
 
 ccccccccccc
+sdfs<fdfdsf
+<ssdfdv<<sd
+fqsdf<dwf
+<s
+dwf<ds
+w<c
+ssdfdvd
+qgs
+fdfdsfe<fdfdsfq
+ze
+eA
+eAD
+sdfsS
+fdfdsfFD
+TEH
+6RUJR
+Y
+TESR
+studentQG
+DGF
+DGFRE
+GQ
+
+RF
+QD
+
+GR
+fqsdfFR
+GQDF
+GQDFG
+RFGRQE
+
+studentggf
+dgs
+RFGRQE
+
+end

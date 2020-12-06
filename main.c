@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 11:16:37 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/05 11:35:30 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/06 11:50:07 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,22 @@ int			main(void)
 	char	*line;
 	int		fd;
 	int		line_nb;
+	int		ret;
 
-	fd = open("test2.txt", O_RDONLY);
+	fd = open("test3.txt", O_RDONLY);
 	line_nb = 1;
-	while (get_next_line(fd, &line))
+	ret = 0;
+	while ((ret = get_next_line(fd, &line)))
 	{
 		printf("\033[1;31m");
 		printf("Line #%d:	%s\n", line_nb, line);
 		printf("\033[0m");
+		free(line);
 		line_nb++;
 	}
 	printf("\033[1;31m");
+	printf("get_next_line returned %d", ret);
 	printf("\nRead whole file!\n");
 	printf("\033[0m");
-	while (1)
-	{;}
-	
 	return (0);
 }

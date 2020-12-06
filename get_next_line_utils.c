@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 09:47:53 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/05 12:46:10 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/06 11:39:53 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strdup(char *s1)
 	size = 0;
 	while (s1[size])
 		size += 1;
-	str = (char*)malloc(sizeof(*str) * size + 1);
+	str = (char*)malloc(sizeof(*str) * (size + 1));
 	if (str == NULL)
 		return (NULL);
 	while (i < size)
@@ -81,7 +81,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*res;
 	size_t	i;
 
-	res = (char *)malloc(len + 1);
+	res = (char *)malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
 	i = 0;

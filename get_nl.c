@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/05 11:46:41 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/05 14:14:44 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/06 11:49:29 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void			ft_strdel(char **as)
 {
-	if (as)
+	if (*as)
 	{
 		free(*as);
 		*as = NULL;
@@ -82,11 +82,11 @@ static int			gnl_check_ret(char **save, char **line, int nbytes, int fd)
 int					get_next_line(int fd, char **line)
 {
 	static char		*save[255];
-	char			buffer[BUFFER_SIZE];
+	char			buffer[BUFFER_SIZE + 1];
 	char			*tmp;
 	int				nbytes;
 
-	while ((nbytes = read(fd, buffer, BUFFER_SIZE)) > 0)
+	while ((nbytes = read(fd, buffer, BUFFER_SIZE)))
 	{
 		buffer[nbytes] = '\0';
 		if (save[fd] == NULL)
