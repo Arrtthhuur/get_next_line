@@ -6,7 +6,7 @@
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/16 11:16:37 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/07 14:44:49 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/07 16:02:13 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,5 @@ int			main(void)
 	printf("get_next_line returned %d", ret);
 	printf("\nRead whole file!\n");
 	printf("\033[0m");
-	while (1)
-	{}
 	return (0);
 }

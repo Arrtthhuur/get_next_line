@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   gnl_two.c                                          :+:    :+:            */
+/*   gnl_com.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/03 20:37:28 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/05 12:39:47 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/07 16:02:45 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		gnl_new_line(char **save, char **line)
 			printf("-------------------------------------------\n");
 			printf("\n");
 		}
-		printf("False\n");	
+		printf("False\n");
 	}
 	else if ((*save)[len] == '\0')
 	{
@@ -156,31 +156,15 @@ int		gnl_check_ret(char **save, char **line, int nbytes, int fd)
 		printf("\n");
 		return (gnl_new_line(&save[fd], line));
 	}
-		
 }
-/*
-** The get_next_line function reads a file and returns the line ending with a
-** newline character from a file descriptor. A static variable is used, so that
-** whenever get_next_line is called, it remembers the previous function call.
-** When get_next_line is first called, we check to see if our static variable
-** **save is empty. If it is, we allocate memory for it using our buff string.
-** In the loop, we will continue to read more of the line and join them together
-** using a temporary string. This temporary string will replace the stored data
-** each iteration so that we can keep track of how much is read and delete
-** the previous stored data. This is needed because we are only reading so many
-** n-bytes at a time decided by our BUFF_SIZE. If we read at each iteration
-** without freeing memory, then we would have memory leaks. The loop breaks when
-** a newline is encountered. Finally, we call output function to check what
-** should be returned.
-*/
 
 int		get_next_line(int fd, char **line)
 {
 	static char		*save[255];
-	char			buffer[BUFFER_SIZE];
+	char			buffer[BUFFER_SIZE + 1];
 	char			*tmp;
 	int				nbytes;
-	
+
 	while ((nbytes = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[nbytes] = '\0';
@@ -210,7 +194,7 @@ int		get_next_line(int fd, char **line)
 			printf("-------------------------------------------\n");
 			printf("[%s]\n", tmp);
 			printf("-------------------------------------------\n");
-			printf("\n");	
+			printf("\n");
 			free(save[fd]);
 			printf("\nFree save[%d]", fd);
 			printf("\n\t\tsave[%d]\n", fd);

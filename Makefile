@@ -6,13 +6,13 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 13:58:28 by abeznik       #+#    #+#                  #
-#    Updated: 2020/12/07 15:42:09 by abeznik       ########   odam.nl          #
+#    Updated: 2020/12/07 15:59:34 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	get_next_line.c $\
 			get_next_line_utils.c $\
-			gnl._comc $\
+			gnl_com.c $\
 
 MAINS	=	main.c $\
 
@@ -22,7 +22,7 @@ MAIN	=	$(MAINS:.c=.o)
 
 CC		=	gcc
 RM		=	rm -f
-CFLAGS	=	-D BUFFER_SIZE=0
+CFLAGS	=	-D BUFFER_SIZE=-1
 
 NAME	=	get_next_line.a
 

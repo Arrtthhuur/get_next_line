@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_nl.c                                           :+:    :+:            */
+/*   get_next_line.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/05 11:46:41 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/07 14:43:30 by abeznik       ########   odam.nl         */
+/*   Updated: 2020/12/07 15:47:59 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-//gcc -Wall -Werror -Wextra -fsanitize=address -g -D BUFFER_SIZE=50 main.c get_nl.c get_next_line_utils.c
+//gcc -Wall -Werror -Wextra -fsanitize=address -g -D BUFFER_SIZE=50 main.c get_next_line.c get_next_line_utils.c
 
 static void			ft_strdel(char **as)
 {
