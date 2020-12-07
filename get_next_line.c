@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   get_nl.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: abeznik <abeznik@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/16 09:47:36 by abeznik       #+#    #+#                 */
-/*   Updated: 2020/12/03 20:58:55 by abeznik       ########   odam.nl         */
+/*   Created: 2020/12/05 11:46:41 by abeznik       #+#    #+#                 */
+/*   Updated: 2020/12/07 14:43:30 by abeznik       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 #include <stdlib.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-static char		*ft_strchr(const char *s, int c)
-{
-	while (*s != (char)c && *s != 0)
-		s++;
-	if (*s == (char)c)
-		return ((char*)s);
-	else
-		return (NULL);
-	return (NULL);
-}
+//gcc -Wall -Werror -Wextra -fsanitize=address -g -D BUFFER_SIZE=50 main.c get_nl.c get_next_line_utils.c
 
-static void		ft_strdel(char **as)
+static void			ft_strdel(char **as)
 {
 	if (as)
 	{
@@ -37,58 +28,79 @@ static void		ft_strdel(char **as)
 	return ;
 }
 
-static int		ft_new_line(char **s, char **line, int fd)
+static char			*ft_strchr(const char *s, int c)
+{
+	int		i;
+	char	*str;
+
+	str = (char *)s;
+	if (*str == (char)c)
+		return (str);
+	i = 1;
+	while (str[i - 1])
+	{
+		if (str[i] == (char)c)
+			return (str + i);
+		i++;
+	}
+	return (NULL);
+}
+
+static int			gnl_new_line(char **save, char **line, int fd)
 {
 	size_t			len;
 	char			*tmp;
 
 	len = 0;
-	while (s[fd][len] != '\n' && s[fd][len] != '\0')
+	while (save[fd][len] != '\n' && save[fd][len] != '\0')
 		len++;
-	if (s[fd][len] == '\n')
+	if (save[fd][len] == '\n')
 	{
-		*line = ft_substr(s[fd], 0, len);
-		printf("s = %s", s[fd] + len + 1);
-		tmp = ft_strdup(s[fd] + len + 1);
-		free(s[fd]);
-		s[fd] = tmp;
-		if (s[fd][0] == '\0')
-			ft_strdel(&s[fd]);
+		*line = ft_substr(save[fd], 0, len);
+		tmp = ft_strdup(save[fd] + len + 1);
+		free(save[fd]);
+		save[fd] = tmp;
+		if (save[fd][0] == '\0')
+			ft_strdel(&(save[fd]));
 	}
-	else if (s[fd][len] == '\0')
+	else if (save[fd][len] == '\0')
 	{
-		*line = ft_strdup(s[fd]);
-		ft_strdel(&s[fd]);
+		*line = ft_strdup(save[fd]);
+		ft_strdel(&(save[fd]));
 	}
 	return (1);
 }
 
-int				get_next_line(int fd, char **line)
+static int			gnl_check_ret(char **save, char **line, int nbytes, int fd)
 {
-	static char		*s[255];
+	if (nbytes < 0)
+		return (-1);
+	else if (nbytes == 0 && save[fd] == NULL)
+		return (0);
+	else
+		return (gnl_new_line(save, line, fd));
+}
+
+int					get_next_line(int fd, char **line)
+{
+	static char		*save[255];
 	char			buffer[BUFFER_SIZE + 1];
 	char			*tmp;
-	int				ret_read;
+	int				nbytes;
 
-	if (fd < 0 || line == NULL)
-		return (-1);
-	while ((ret_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	while ((nbytes = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		buffer[ret_read] = '\0';
-		if (s[fd] == NULL)
-			s[fd] = ft_strdup(buffer);
+		buffer[nbytes] = '\0';
+		if (save[fd] == NULL)
+			save[fd] = ft_strdup(buffer);
 		else
 		{
-			tmp = ft_strjoin(s[fd], buffer);
-			free(s[fd]);
-			s[fd] = tmp;
+			tmp = ft_strjoin(save[fd], buffer);
+			free(save[fd]);
+			save[fd] = tmp;
 		}
-		if (ft_strchr(s[fd], '\n'))
+		if (ft_strchr(save[fd], '\n'))
 			break ;
 	}
-	if (ret_read < 0)    
-		return (-1);
-	else if (ret_read == 0 && (s[fd] == NULL || s[fd][0] == '\0'))
-		return (0);
-	return (ft_new_line(s, line, fd));
+	return (gnl_check_ret(save, line, nbytes, fd));
 }

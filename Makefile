@@ -6,7 +6,7 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 13:58:28 by abeznik       #+#    #+#                  #
-#    Updated: 2020/12/05 13:09:27 by abeznik       ########   odam.nl          #
+#    Updated: 2020/12/07 14:52:29 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,20 +49,11 @@ mclean:
 oclean:
 	$(RM) *.out
 
-test:		gnl.o main.o get_next_line_utils.o
-	$(CC) -o test gnl.o main.o get_next_line_utils.o
-
-test2:		gnl_test.o main.o get_next_line_utils.o
-	$(CC) -o gnl_test gnl_test.o main.o get_next_line_utils.o
-
-com:		gnl_two.o main.o get_next_line_utils.o
-	$(CC) -o com gnl_two.o main.o get_next_line_utils.o
-
-get_nl:		get_nl.o main.o get_next_line_utils.o
-	$(CC) -o get_nl get_nl.o main.o get_next_line_utils.o
+com:		gnl_com.o main.o get_next_line_utils.o
+	$(CC) -o com.out gnl_two.o main.o get_next_line_utils.o
 
 gnl:		get_next_line.o main.o get_next_line_utils.o
-	$(CC) -o gnl get_next_line.o main.o get_next_line_utils.o
+	$(CC) -o gnl.out get_next_line.o main.o get_next_line_utils.o
 	@echo "[INFO] Executable [$(NAME)] created!"
 
 del:		mclean oclean fclean
