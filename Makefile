@@ -6,19 +6,15 @@
 #    By: abeznik <abeznik@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/17 13:58:28 by abeznik       #+#    #+#                  #
-#    Updated: 2020/12/07 14:52:29 by abeznik       ########   odam.nl          #
+#    Updated: 2020/12/07 15:42:09 by abeznik       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	get_next_line.c $\
 			get_next_line_utils.c $\
-			gnl.c $\
-			gnl_test.c $\
-			gnl_two.c $\
-			get_nl.c $\
+			gnl._comc $\
 
 MAINS	=	main.c $\
-			main_test.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -26,7 +22,7 @@ MAIN	=	$(MAINS:.c=.o)
 
 CC		=	gcc
 RM		=	rm -f
-CFLAGS	=	-D BUFFER_SIZE=9999
+CFLAGS	=	-D BUFFER_SIZE=0
 
 NAME	=	get_next_line.a
 
@@ -50,7 +46,7 @@ oclean:
 	$(RM) *.out
 
 com:		gnl_com.o main.o get_next_line_utils.o
-	$(CC) -o com.out gnl_two.o main.o get_next_line_utils.o
+	$(CC) -o com.out gnl_com.o main.o get_next_line_utils.o
 
 gnl:		get_next_line.o main.o get_next_line_utils.o
 	$(CC) -o gnl.out get_next_line.o main.o get_next_line_utils.o
